@@ -1,0 +1,418 @@
+
+  
+/* ********** Custom Properties ********** */
+:root {
+    --first-color: #191919;
+    --first-color-op: rgba(51, 51, 51, 0.2);
+    --second-color: #ffff;
+    --text-color: #ffff;
+    --font: "Montserrat", sans-serif;
+    --max-width: 991px;
+    --line-color: #78e6d0;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    color: var(--text-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--second-color);
+}
+
+.container {
+    padding: 1rem;
+}
+
+.container h6{
+    font-size: 12px;
+}
+
+.container h2{
+    font-size: 32px;
+}
+
+
+@media screen and  (min-width: 991px){
+
+    .container{
+        padding: 1.25rem 5rem;
+    }
+
+    .container h2{
+        font-size: 42px;
+    }
+}
+  
+/* ********** Reset ********** */
+
+html {
+    box-sizing: border-box;
+    font-family: var(--font);
+    font-size: 16px;
+    scroll-behavior: smooth;
+    background-color: var(--first-color);
+}
+  
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+
+/* ********** Nav Bar ********** */
+
+.header{
+    position: fixed;
+    background-color: var(--first-color);
+    left: 0;
+    top: 2%;
+    z-index: 999;
+    padding: 1rem;
+    width: 100%;
+    height: 4rem;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.header > .container-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo a{
+    color: var(--second-color);
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+.container-bar{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-width);
+}
+
+
+
+/* ********** Burguer Menu ********** */
+
+.burguer {
+    display: inline-block;
+    cursor: pointer;
+}
+      
+.bar1, 
+.bar2, 
+.bar3 {
+        width: 35px;
+        height: 1px;
+        background-color: var(--second-color);
+        margin: 10px 0;
+        transition: 0.4s;
+}
+
+      
+.none .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-6px, 5px);
+        transform: rotate(-45deg) translate(-6px, 5px);
+}
+      
+.none .bar2 {
+    opacity: 0;
+}
+      
+.none .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -7px);
+        transform: rotate(45deg) translate(-8px, -7px);
+}
+
+
+.full-screen-menu {
+    top: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    transform: translateY(-2000px);
+    z-index: 99; 
+    background-color: var(--first-color);
+    overflow-x: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 2s ease;
+}
+
+
+.full-screen-menu.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+
+.menu {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.menu a{
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+.filter{
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background-color: var(--first-color-op);   
+}
+
+@media screen and (min-width: 991px){
+    .menu {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .menu a{
+        padding: 1.5rem;
+        font-size: 3rem;
+        display: inline-block;
+        position: relative;
+    }
+
+
+    .menu a::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 20%;
+        left: 0;
+        background-color: var(--line-color);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.6s ease-out;
+    }
+
+    .menu a:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+}
+
+/* ********** Home ********** */
+
+.hero-image {
+    background-image: url(/resources/thegrid_8.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.hi-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 1rem;
+}
+
+.hi-title {
+    font-size: 30px;
+    width: 100%;
+    color: var(--second-color); 
+}
+
+
+.btn {
+    border-radius: .5rem;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    width: 75%;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: var(--first-color);
+    background-color: var(--line-color);
+    opacity: 0.25;
+    font-size: 3vh;
+}
+
+@media screen and  (min-width: 700px){
+    
+    .hi-title {
+        font-size: 42px;
+        white-space: nowrap;
+    } 
+    
+
+    .btn:hover {
+        opacity: 0.75;
+        transition: all 0.75s ease-out;
+    }
+
+}
+
+/* ********** About Us ********** */
+
+
+@media screen and  (min-width: 991px){
+    
+    .about-content{
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        justify-content: space-between;
+        align-content: center;
+        margin: 1rem auto;
+        padding: 1rem 0;
+    }
+
+    .about-content3{
+        padding-left: 2rem;
+    }
+}
+
+/* ********** Services ********** */
+
+.services-content svg{
+    transform: scale(1.25);
+}
+
+.services-card {
+    margin: 1rem auto;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+@media screen and  (min-width: 991px){
+
+    .services-content {
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        justify-content: space-between;
+        align-content: center;
+    }
+}
+
+/* ********** Proyects ********** */
+.container {
+    overflow-x: hidden;
+}
+
+.wrapper {
+    overflow-x: hidden;
+}
+
+.proyects-content {
+    color: white;
+    animation: spin 8s linear infinite;
+}
+
+
+@keyframes spin {
+    from{
+        transform: translate3d(95%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)
+    }
+    to{
+        transform: translate3d(-95%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)
+    }
+
+}
+
+
+@media screen and  (min-width: 991px){
+
+
+    @keyframes spin {
+        from{
+            transform: translate3d(100%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)
+        }
+        to{
+            transform: translate3d(-30%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)
+        }
+    
+    }
+}
+
+/* ********** Contact ********** */
+
+.contact-content img {
+    display: none;
+}
+
+.contact-content {
+    height: 100%;
+    width: 100%;
+}
+
+.contact-section {
+    display: grid;
+    grid-template-rows: repeat(2, 3fr);
+    justify-content: center;
+    align-content: center;
+}
+
+.contact-social {
+    padding-left: 4rem;
+}
+
+.contact-section a{
+    padding: 1rem;
+}
+
+a svg {
+    transform: scale(1.25);
+}
+
+/* ********** Footer ********** */
+
+.footer {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 11px;
+    border-top: 1px solid;
+    border-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+}
+
+.footer a{
+    color: rgba(255, 255, 255, 0.25);
+    transition: all 0.75s ease-out;
+}
+
+.footer a:hover{
+    color: var(--second-color);
+}
+
