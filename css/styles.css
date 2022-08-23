@@ -224,7 +224,7 @@ html {
 /* ********** Home ********** */
 
 .hero-image {
-    /* background-image: url("/resources/hero.jpg"); */
+    background-image: url("/resources/hero.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
